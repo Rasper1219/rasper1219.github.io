@@ -1,0 +1,33 @@
+---
+import Base from "../layouts/BaseLayout.astro";
+import ResumeDownloadButton from "../components/ResumeDownloadButton";
+import { SITE } from "../data/siteConfig";
+const resumePath = SITE.base + "resume.pdf";
+---
+<Base title="Home">
+  <section class="card mt-8">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Ship good and fast.</h1>
+    <p class="mt-4 text-[var(--muted)] max-w-prose">
+      CS grad focused on Python + ML. This site is optimized for busy hiring managers: quick skim, clear value,
+      and deep dives only when you want them.
+    </p>
+    <div class="mt-6 flex items-center gap-3">
+      <ResumeDownloadButton client:load href={resumePath} filename="Ryan_Adolfs_Resume.pdf" />
+      <a class="btn" href={SITE.base + "projects/"}>View Projects</a>
+      <a class="btn" href={SITE.base + "contact/"}>Contact</a>
+    </div>
+  </section>
+
+  <section class="mt-10 grid md:grid-cols-2 gap-6">
+    <div class="card">
+      <h2 class="text-xl font-semibold">Featured Project</h2>
+      <p class="text-[var(--muted)]">Placeholder: your strongest project summary goes here (problem → approach → result).</p>
+      <a class="btn mt-4" href={SITE.base + "projects/"}>See all projects</a>
+    </div>
+    <div class="card">
+      <h2 class="text-xl font-semibold">Paper</h2>
+      <p class="text-[var(--muted)]">A novel approach for phishing detection using NLP — summary & PDF.</p>
+      <a class="btn mt-4" href={SITE.base + "paper/"}>Read the paper</a>
+    </div>
+  </section>
+</Base>

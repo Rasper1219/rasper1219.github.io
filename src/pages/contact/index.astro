@@ -1,0 +1,12 @@
+---
+import Base from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/siteConfig";
+---
+<Base title="Contact">
+  <h1 class="text-3xl font-bold">Contact</h1>
+  <div class="card mt-4">
+    <p>Email: <a href={"mailto:" + SITE.email}>{SITE.email}</a></p>
+    <p class="mt-2">LinkedIn: <a href={SITE.linkedIn}>{SITE.linkedIn}</a></p>
+    <p class="mt-2 text-[var(--muted)]">No phone or forms — by design.</p>
+  </div>
+</Base>

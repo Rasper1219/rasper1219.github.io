@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "target": "ES2022",
+    "types": [
+      "astro/client"
+    ],
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ]
+}
