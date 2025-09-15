@@ -1,15 +1,47 @@
 ---
 import Base from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/siteConfig";
+
+const papers = [
+  {
+    title: "A novel approach for phishing detection using NLP",
+    venue: "— add venue/year here —",
+    pdf: SITE.base + "papers/phishing.pdf",
+    abstract: `Phishing emails continue to pose an immediate and modern threat to global cybersecurity. This paper investigates the effectiveness of various Natural Language Processing (NLP) and Machine Learning (ML) techniques for detecting phishing emails. Three NLP techniques (N-grams, Bag-of-Words, Term Frequency-Inverse Document Frequency) are evaluated across three different ML models: Logistic Regression (LR), Random Forest (RF), and Support Vector Machine (SVM). We apply 18 unique model-vectorization combinations to a dataset of almost 82,500 emails to assess their performance on accuracy, precision, recall, and F1 score. Our results show that the combination of TF-IDF with a (1,2) N-gram range with SVM achieves the best performance metrics, achieving the highest accuracy of 99.19% and outperforming the second-best combination with a 38.17% reduction in error rate. These findings suggest that SVM combined with TF-IDF vectorization is well suited and effective for dealing with phishing detection, especially when paired with an optimized N-gram configuration.
+
+Index Terms—cybersecurity, detection, feature extraction, logistical regression, machine learning, natural language processing, phishing email, random forest, spam, support vector machines`
+  },
+  {
+    title: "Rapid Literature Review — (put full title here)",
+    venue: "— add venue/year here —",
+    pdf: SITE.base + "papers/rapid-literature-review.pdf",
+    abstract: "— add a 2–3 sentence plain-English abstract here —"
+  }
+];
 ---
-<Base title="Paper">
-  <h1 class="text-3xl font-bold">A novel approach for phishing detection using NLP</h1>
-  <p class="mt-4 text-[var(--muted)]">Abstract</p>
-  <div class="card mt-4 prose prose-invert max-w-none">
-    <p>Phishing emails continue to pose an immediate and modern threat to global cybersecurity. This paper investigates the effectiveness of various Natural Language Processing (NLP) and Machine Learning (ML) techniques for detecting phishing emails. Three NLP techniques (N-grams, Bag-of-Words, Term Frequency-Inverse Document Frequency) are evaluated across three different ML models: Logistic Regression (LR), Random Forest (RF), and Support Vector Machine (SVM). We apply 18 unique model-vectorization combinations to a dataset of almost 82,500 emails to assess their performance on accuracy, precision, recall, and F1 score. Our results show that the combination of TF-IDF with a (1,2) N-gram range with SVM achieves the best performance metrics, achieving the highest accuracy of 99.19% and outperforming the second-best combination with a 38.17% reduction in error rate. These findings suggest that SVM combined with TF-IDF vectorization is well suited and effective for dealing with phishing detection, especially when paired with an optimized N-gram configuration.</p>
-    <p class="mt-4 text-sm opacity-80"><strong>Index Terms—</strong> cybersecurity, detection, feature extraction, logistical regression, machine learning, natural language processing, phishing email, random forest, spam, support vector machines</p>
-  </div>
-  <div class="mt-6 flex gap-3">
-    <a class="btn" href="#">Download PDF (placeholder)</a>
-    <a class="btn" href="#">GitHub / code (optional)</a>
-  </div>
+<Base title="Papers">
+  <h1 class="text-3xl font-bold">Papers</h1>
+
+  {papers.map((p) => (
+    <section class="card mt-6">
+      <h2 class="text-xl font-semibold">{p.title}</h2>
+      <p class="text-[var(--muted)] mt-1">{p.venue}</p>
+
+      <p class="mt-4 whitespace-pre-line">{p.abstract}</p>
+
+      <div class="mt-4 flex gap-3">
+        <a class="btn" href={p.pdf} download>Download PDF</a>
+        <a class="btn" href={p.pdf} target="_blank" rel="noopener">Open PDF</a>
+      </div>
+
+      <div class="mt-4">
+        <object data={p.pdf} type="application/pdf" class="w-full h-[70vh]">
+          <p class="text-[var(--muted)]">
+            PDF preview not supported.
+            <a href={p.pdf} target="_blank" rel="noopener">Open in a new tab</a>.
+          </p>
+        </object>
+      </div>
+    </section>
+  ))}
 </Base>
