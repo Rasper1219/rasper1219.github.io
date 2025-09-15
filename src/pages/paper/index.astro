@@ -5,7 +5,7 @@ import { SITE } from "../../data/siteConfig";
 const papers = [
   {
     title: "A novel approach for phishing detection using NLP",
-    venue: "— add venue/year here —",
+    venue: "University of Alabama - 2025",
     pdf: SITE.base + "papers/phishing.pdf",
     abstract: `Phishing emails continue to pose an immediate and modern threat to global cybersecurity. This paper investigates the effectiveness of various Natural Language Processing (NLP) and Machine Learning (ML) techniques for detecting phishing emails. Three NLP techniques (N-grams, Bag-of-Words, Term Frequency-Inverse Document Frequency) are evaluated across three different ML models: Logistic Regression (LR), Random Forest (RF), and Support Vector Machine (SVM). We apply 18 unique model-vectorization combinations to a dataset of almost 82,500 emails to assess their performance on accuracy, precision, recall, and F1 score. Our results show that the combination of TF-IDF with a (1,2) N-gram range with SVM achieves the best performance metrics, achieving the highest accuracy of 99.19% and outperforming the second-best combination with a 38.17% reduction in error rate. These findings suggest that SVM combined with TF-IDF vectorization is well suited and effective for dealing with phishing detection, especially when paired with an optimized N-gram configuration.
 
@@ -13,9 +13,32 @@ Index Terms—cybersecurity, detection, feature extraction, logistical regressio
   },
   {
     title: "Rapid Literature Review — (put full title here)",
-    venue: "— add venue/year here —",
+    venue: "University of Alabama - 2025",
     pdf: SITE.base + "papers/rapid-literature-review.pdf",
-    abstract: "— add a 2–3 sentence plain-English abstract here —"
+    abstract: "Abstract—As the world increasingly relies on software for
+its smooth functioning, testing of the ever-changing algorithms
+has become increasingly more difficult as the dimensions of the
+data, state spaces, and internal logic increases in complexity.
+Thus, the development of efficient, yet adaptable software testing
+techniques has become a common priority in ensuring the
+reliability of the application. This literature review synthesizes
+recent advancements in Reinforcement Learning (RL) and Large
+Language Models (LLMs) for software testing and bug detection.
+RL offers adaptive, exploratory testing, excelling in dynamic
+environments like continuous integration, autonomous driving,
+and cybersecurity. RL’s ability to prioritize tests and uncover
+subtle faults enhances reliability in complex systems. Conversely,
+LLMs, such as GPT-3 and Llama-2, automate test case generation, enhance test oracle accuracy, and improve bug detection. A
+comparative analysis reveals RL’s superiority in interactive, staterich scenarios, alongside LLMs’ strength in code-centric, predictable tasks. Industrial adoption is growing, though challenges
+like functional inaccuracies, computational costs, and integration
+complexities persist. This review underscores the complementary
+roles of LLMs and RL, advocating for hybrid approaches to
+maximize their impact on intelligent, scalable software quality
+assurance.
+Index Terms—Software Testing Methods, Reinforcement
+Learning, Large Language Models, Test Automation, Test Case
+Generation, Test Coverage, Test Oracle Generation, Bug Detection, Fuzz Testing, Mutation Testing, Vulnerability Detection,
+"
   }
 ];
 ---
