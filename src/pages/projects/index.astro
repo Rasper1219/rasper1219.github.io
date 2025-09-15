@@ -1,22 +1,53 @@
 ---
 import Base from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/siteConfig";
+
+const projects = [
+  {
+    title: "Blackjack++",
+    img: SITE.base + "images/projects/blackjack.png", // <- replace with your image
+    alt: "Screenshot of Blackjack++ web casino with cards, chips, and roulette",
+    desc: `Built a full-featured casino web app with polished JS/CSS UI (animated roulette, card dealing, draggable chips) and a PHP/MySQL backend. All randomness and game rules run server-side with AJAX updates for balances, plus an admin console for account management. Includes an in-game blackjack strategy coach that gives real-time, optimal-play feedback.`,
+  },
+  {
+    title: "Crimson White Preservation Pipeline",
+    img: SITE.base + "images/projects/cw-pipeline.jpg", // <- replace with your image
+    alt: "Historical newspaper scans processed by a Python pipeline",
+    desc: `Digitized 149 historical newspaper issues (1910–1914) and built a Python pipeline to segment scans, run OCR, and auto-generate preservation metadata (JSON → XML skeletons). Created text embeddings and used FAISS + a subject-heading model to assign Library-of-Congress topics and write page/issue abstracts—making previously hard-to-find content searchable. Packaged everything into a simple tool for non-technical staff, with offline fallbacks.`,
+  },
+  {
+    title: "Probabilistic TCG Optimizer (Togekiss 1-0-1)",
+    img: SITE.base + "images/projects/tcg-optimizer.jpg", // <- replace with your image
+    alt: "Plots and tables from a Pokémon TCG Monte Carlo simulator",
+    desc: `A Python Monte Carlo simulator that models real Pokémon TCG rules and search lines to estimate “get the Stage-2 up” odds by turn and expected prize value. Implements targeted tutors/search (e.g., Poffin, Ultra Ball, Rare Candy) and outputs consistency curves, prize EV, and side-by-side deck tweaks over 5k–20k trials. Key finding: Stage-2 access is the bottleneck—extra search or a second copy meaningfully improves early “up” rates.`,
+  },
+  {
+    title: "Baseball Q-Learning Pitch Suggester",
+    img: SITE.base + "images/projects/qpitch.png", // <- replace with your image
+    alt: "Baseball pitch chart with recommended sequences",
+    desc: `Scrapes Baseball Savant data and builds a 4-D state space to simulate at-bats. Trains a Q-learning agent to recommend pitch sequences that maximize a target outcome (groundball, flyball, strikeout), producing turn-by-turn suggestions grounded in game context.`,
+  },
+];
 ---
 <Base title="Projects">
   <h1 class="text-3xl font-bold">Projects</h1>
-  <p class="mt-2 text-[var(--muted)]">We’ll curate your top 3. Each links to a story-first page.</p>
+  <p class="mt-2 text-[var(--muted)]">A quick sampler — image first, then a short description.</p>
 
-  <div class="mt-6 grid gap-6">
-    <article class="card">
-      <h2 class="text-xl font-semibold">Project One (placeholder)</h2>
-      <p class="text-[var(--muted)]">Problem → approach → measurable result. Add screenshots.</p>
-    </article>
-    <article class="card">
-      <h2 class="text-xl font-semibold">Project Two (placeholder)</h2>
-      <p class="text-[var(--muted)]">Brief teaser that motivates a click.</p>
-    </article>
-    <article class="card">
-      <h2 class="text-xl font-semibold">Project Three (placeholder)</h2>
-      <p class="text-[var(--muted)]">What changed for users, speed, or cost.</p>
-    </article>
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {projects.map((p) => (
+      <article class="card p-0 overflow-hidden">
+        <img
+          src={p.img}
+          alt={p.alt}
+          loading="lazy"
+          decoding="async"
+          class="w-full h-48 md:h-56 object-cover"
+        />
+        <div class="p-6">
+          <h2 class="text-xl font-semibold">{p.title}</h2>
+          <p class="mt-2 text-[var(--muted)]">{p.desc}</p>
+        </div>
+      </article>
+    ))}
   </div>
 </Base>
