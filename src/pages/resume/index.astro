@@ -1,28 +1,33 @@
 ---
-import Base from "../../layouts/BaseLayout.astro";
 import ResumeDownloadButton from "../../components/ResumeDownloadButton";
+import Base from "../../layouts/BaseLayout.astro";
 import { SITE } from "../../data/siteConfig";
+
 const resumePdf = SITE.base + "resume.pdf";
 ---
-<Base title="Résumé">
-  <h1 class="text-3xl font-bold">Résumé</h1>
 
-  <div class="mt-4 flex gap-3">
-    <ResumeDownloadButton client:load href={resumePdf} filename="Ryan_Adolfs_Resume.pdf" />
-    <a class="btn" href={resumePdf} target="_blank" rel="noopener">Open PDF</a>
-  </div>
+<Base title="Resume">
+  <section class="card page-hero mt-6">
+    <p class="eyebrow">Resume</p>
+    <h1 class="page-title">View or download my resume.</h1>
+    <p class="page-copy max-w-2xl">
+      The embedded PDF is available below, and you can download or open the full document in a new tab.
+    </p>
 
-  <div class="card mt-6">
-    <object
-      data={resumePdf}
-      type="application/pdf"
-      class="w-full h-[80vh]"
-      aria-label="Résumé PDF"
-    >
-      <p class="text-[var(--muted)]">
-        Your browser can’t display embedded PDFs.
-        <a href={resumePdf} target="_blank" rel="noopener">Open it in a new tab</a>.
-      </p>
-    </object>
-  </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <ResumeDownloadButton client:load href={resumePdf} filename="Ryan_Adolfs_Resume.pdf" />
+      <a class="btn" href={resumePdf} target="_blank" rel="noopener">Open PDF</a>
+    </div>
+  </section>
+
+  <section class="card mt-8">
+    <div class="pdf-shell">
+      <object data={resumePdf} type="application/pdf" class="pdf-embed" aria-label="Resume PDF">
+        <p class="page-copy">
+          Your browser cannot display embedded PDFs.
+          <a href={resumePdf} target="_blank" rel="noopener"> Open it in a new tab.</a>
+        </p>
+      </object>
+    </div>
+  </section>
 </Base>

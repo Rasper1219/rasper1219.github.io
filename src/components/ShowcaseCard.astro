@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  desc: string;
+  img?: string;
+  alt?: string;
+  href?: string;
+  eyebrow?: string;
+  meta?: string[];
+  cta?: string;
+  placeholderLabel?: string;
+  placeholderTitle?: string;
+  placeholderMeta?: string[];
+}
+
+const {
+  title,
+  desc,
+  img,
+  alt = title,
+  href,
+  eyebrow,
+  meta = [],
+  cta,
+  placeholderLabel = "System",
+  placeholderTitle = title,
+  placeholderMeta = [],
+} = Astro.props;
+
+const Tag = href ? "a" : "article";
+---
+
+<Tag href={href} class:list={["showcase-card", href && "showcase-card--link", "group"]}>
+  {img ? (
+    <img
+      src={img}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      class="showcase-card__media"
+    />
+  ) : (
+    <div class="showcase-card__media showcase-card__media--placeholder" aria-hidden="true">
+      <div class="showcase-card__placeholder-grid"></div>
+      <div class="showcase-card__placeholder-content">
+        <span class="showcase-card__placeholder-label">{placeholderLabel}</span>
+        <p class="showcase-card__placeholder-title">{placeholderTitle}</p>
+        {placeholderMeta.length > 0 && (
+          <div class="showcase-card__placeholder-meta">
+            {placeholderMeta.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )}
+
+  <div class="showcase-card__body">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h2 class="showcase-card__title">{title}</h2>
+    {meta.length > 0 && (
+      <div class="showcase-card__meta">
+        {meta.map((item) => (
+          <span class="meta-chip">{item}</span>
+        ))}
+      </div>
+    )}
+    <p class="showcase-card__desc">{desc}</p>
+    {href && cta && <span class="showcase-card__cta">{cta}</span>}
+  </div>
+</Tag>

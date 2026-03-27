@@ -2,11 +2,31 @@
 import Base from "../../layouts/BaseLayout.astro";
 import { SITE } from "../../data/siteConfig";
 ---
+
 <Base title="Contact">
-  <h1 class="text-3xl font-bold">Contact</h1>
-  <div class="card mt-4">
-    <p>Email: <a href={"mailto:" + SITE.email}>{SITE.email}</a></p>
-    <p class="mt-2">LinkedIn: <a href={SITE.linkedIn}>{SITE.linkedIn}</a></p>
-    <p class="mt-2 text-[var(--muted)]">(248) 214-3160</p>
-  </div>
+  <section class="card page-hero mt-6">
+    <p class="eyebrow">Contact</p>
+    <h1 class="page-title">Reach out.</h1>
+    <p class="page-copy max-w-2xl">
+      If you want to talk about software engineering, machine learning, research, or an opportunity, use
+      any of the methods below.
+    </p>
+  </section>
+
+  <section class="card mt-8">
+    <div class="contact-grid md:grid-cols-3">
+      <div class="contact-method">
+        <span class="contact-label">Email</span>
+        <a href={"mailto:" + SITE.email}>{SITE.email}</a>
+      </div>
+      <div class="contact-method">
+        <span class="contact-label">LinkedIn</span>
+        <a href={SITE.linkedIn}>{SITE.linkedIn}</a>
+      </div>
+      <div class="contact-method">
+        <span class="contact-label">Phone</span>
+        <span>(248) 214-3160</span>
+      </div>
+    </div>
+  </section>
 </Base>

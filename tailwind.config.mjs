@@ -5,12 +5,12 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#9FE870', // placeholder accent; change later
+          DEFAULT: '#35d2c3',
         }
       },
       fontFamily: {
-        sans: ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Inter', 'Helvetica', 'Arial', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'monospace']
+        sans: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'monospace']
       },
       borderRadius: {
         '2xl': '1rem'

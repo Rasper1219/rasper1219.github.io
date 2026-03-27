@@ -1,0 +1,49 @@
+---
+import ShowcaseCard from "../../components/ShowcaseCard.astro";
+import Base from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../data/siteConfig";
+
+const projectsHref = SITE.base + "projects/";
+
+const experiences = [
+  {
+    title: "Machine Learning Dataset Encoder",
+    eyebrow: "University of Alabama Special Collections Library",
+    meta: ["Mar 2025 - Dec 2025", "Python", "FAISS", "XML ETL"],
+    img: SITE.base + "images/projects/cw-pipeline.png",
+    alt: "Historical newspaper pages and metadata processing pipeline",
+    desc:
+      "Built a production-facing preservation pipeline that turned OCR newspaper scans into searchable XML metadata for the library. Combined embeddings, FAISS retrieval, and document-segment classification to generate cleaner abstracts, subject guidance, and reusable archival records from both new and legacy sources.",
+  },
+  {
+    title: "Software Engineer",
+    eyebrow: "Blackjack++",
+    meta: ["Jan 2024 - May 2024", "PHP", "MySQL", "JavaScript", "Agile"],
+    img: SITE.base + "images/projects/blackjack.png",
+    alt: "Blackjack++ casino web application with game table interface",
+    desc:
+      "Built a full-stack casino web app with animated Blackjack, Roulette, and slots, backed by PHP and MySQL services for balances, rules, and admin workflows. Contributed across the responsive front end and server-side game logic while working inside a five-person Agile team.",
+  },
+];
+---
+
+<Base title="Experience">
+  <section class="card page-hero mt-6">
+    <p class="eyebrow">Experience</p>
+    <h1 class="page-title">Work that shipped useful systems.</h1>
+    <p class="page-copy max-w-3xl">
+      These roles reflect the kind of work I want more of: practical software, clean data pipelines,
+      and technical systems that make someone else's job easier.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a class="btn" href={projectsHref}>View Projects</a>
+      <a class="btn" href={SITE.base + "resume/"}>Open Resume</a>
+    </div>
+  </section>
+
+  <section class="mt-8 grid gap-6 lg:grid-cols-2">
+    {experiences.map((item) => (
+      <ShowcaseCard {...item} />
+    ))}
+  </section>
+</Base>

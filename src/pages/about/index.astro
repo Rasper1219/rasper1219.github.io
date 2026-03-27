@@ -2,41 +2,54 @@
 import Base from "../../layouts/BaseLayout.astro";
 import { SITE } from "../../data/siteConfig";
 
-const IMAGES = [
-  { src: SITE.base + "images/about/me-1.JPG", alt: "Me at the Wisconsin - Alabama game" },
-  { src: SITE.base + "images/about/me-2.jpg", alt: "Playing Club Baseball in South Carolina" },
-  { src: SITE.base + "images/about/me-3.JPG", alt: "My Family and I at my Undergrad graduation" },
+const images = [
+  { src: SITE.base + "images/about/me-1.JPG", alt: "Ryan at the Wisconsin and Alabama game" },
+  { src: SITE.base + "images/about/me-2.jpg", alt: "Ryan playing club baseball in South Carolina" },
+  { src: SITE.base + "images/about/me-3.JPG", alt: "Ryan with family at undergraduate graduation" },
 ];
+
+const hobbies = ["Baseball", "Video games", "Fishing and hunting", "Pokemon TCG", "Watching sports", "Anime", "Dancing"];
 ---
+
 <Base title="About">
-  <h1 class="text-3xl font-bold">About</h1>
+  <section class="card page-hero mt-6">
+    <p class="eyebrow">About</p>
+    <h1 class="page-title">How I work, and what matters to me outside the code.</h1>
+    <p class="page-copy max-w-3xl">
+      I try to approach my work with care, discipline, and purpose. If I choose to build something, I
+      want to build it well and treat the process with real intention.
+    </p>
+  </section>
 
-  <div class="card mt-4">
-    <p>The best way I can describe the way I work and do all things is this: I try to have my actions be prayers in themselves. Everything I build I try to act like I'm going to show it off to the Lord. I am conscientious and passionate about everything I do, as if I am not that way about doing the things I choose to do, why do them at all.</p>
-    <ul class="list-disc pl-6 mt-3 text-[var(--muted)]">
-      <p>My hobbies include:</p>
-      <li>Baseball</li>
-      <li>Video Games</li>
-      <li>Fishing and hunting</li>
-      <li>Pokemon TCG</li>
-      <li>Watching sports</li>
-      <li>Anime</li>
-      <li>Dancing</li>
-    </ul>
-  </div>
+  <section class="mt-8 grid gap-6 lg:grid-cols-[1.35fr_0.95fr]">
+    <article class="card">
+      <p class="eyebrow">Perspective</p>
+      <p class="page-copy">
+        The best way I can describe how I work is this: I try to let my actions be prayers in
+        themselves. Everything I build, I try to approach like it is something worth showing the Lord.
+        I want my work to reflect conscientious effort and real passion. If I cannot bring that kind of
+        care to the things I choose to do, there is no reason for me to do them halfway.
+      </p>
+    </article>
 
-  <section class="mt-6">
-    <h2 class="text-xl font-semibold">Photos</h2>
-    <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-      {IMAGES.map((img) => (
-        <figure class="card p-0 overflow-hidden">
-          <img
-            src={img.src}
-            alt={img.alt}
-            loading="lazy"
-            decoding="async"
-            class="w-full h-64 object-cover"
-          />
+    <aside class="card">
+      <p class="eyebrow">Off The Clock</p>
+      <h2 class="section-title mt-4">Interests</h2>
+      <ul class="tag-list mt-6">
+        {hobbies.map((hobby) => (
+          <li><span class="tag-pill">{hobby}</span></li>
+        ))}
+      </ul>
+    </aside>
+  </section>
+
+  <section class="mt-10">
+    <p class="eyebrow">Photos</p>
+    <h2 class="section-title mt-4">A few snapshots outside school and work.</h2>
+    <div class="mt-8 grid gap-6 md:grid-cols-3">
+      {images.map((image) => (
+        <figure class="card photo-card p-0">
+          <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
         </figure>
       ))}
     </div>
