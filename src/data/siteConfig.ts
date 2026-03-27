@@ -2,7 +2,7 @@ export const SITE = {
   title: "Ryan Adolfs",
   tag: "Software, ML, and applied systems.",
   description: "Computer science portfolio spanning machine learning, software engineering, robotics, and research.",
-  email: "rmadolfs@crimson.ua.edu",
+  email: "ryan.adolfs@gmail.com",
   linkedIn: "https://www.linkedin.com/in/ryanadolfs",
   github: "https://github.com/Rasper1219",
   base: "/", // user site uses "/"
